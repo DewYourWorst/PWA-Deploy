@@ -71,7 +71,7 @@ registerRoute(({ request }) => request.mode === 'navigate', pageCache);
   If you supply the correct values below, this file is complete.
 */
 const paths = ["style", "script", "worker"]
-registerRoute( ({ request }) => request.destination.includes(paths),
+registerRoute( ({ request }) => paths.includes(request.destination),
   new StaleWhileRevalidate({
     cacheName: 'asset-cache',
     plugins: [
